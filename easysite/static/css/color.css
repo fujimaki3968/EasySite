@@ -1,0 +1,193 @@
+*{
+    font-family: 'Lato', 'Noto Sans JP', '游ゴシック Medium', '游ゴシック体', 'Yu Gothic Medium', YuGothic, 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+}
+.back-menu {
+    background: #133969;
+}
+
+a {
+    color: white;
+}
+
+.an_box {
+    /*background: #333333;*/
+    color: white;
+
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 4px;
+
+}
+
+
+::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background: #eee;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: gray;
+}
+
+.under {
+    border-bottom: solid 1px #777777;
+}
+
+.underline {
+    margin-bottom: -10px;
+    border-bottom: solid 4px #11bbaa;
+}
+.scroll {
+    -webkit-overflow-scrolling: touch;
+}
+
+.descri-title {
+    overflow:		hidden;
+    margin:			10px 8px 10px 16px;
+    position:		relative;
+
+}
+
+.descri-title .caption b{
+    font-size:		120%;
+    color:			#111111;
+    padding-top:		15px;
+    padding-left:		20px;
+}
+
+.descri-title .caption p{
+    font-size:		100%;
+    color:			#fff;
+    padding-top:		10px;
+    padding-left:		20px;
+}
+
+.descri-title .caption a {
+    font-size:		100%;
+    color:			#333333;
+    padding-bottom:		100px;
+    padding-left:		20px;
+}
+
+.descri-title .caption {
+    height: 100%;
+    overflow: scroll;
+}
+
+.descri-title .mask {
+    width:			65%;	/* 画像の半分の大きさにする */
+    height:			97.6%;
+    position:		absolute;
+    top:			0;
+    left:			0;
+    margin-left:		-65%;	/* 枠の左に置いて表示させない */
+    background-color:	#1ba;
+    -webkit-transition:	all 0.2s ease;
+    transition:		all 0.2s ease;
+}
+
+.descri-title:hover .mask {
+    margin: 0;
+}
+
+.descri-title img {
+    width: 300px;
+    height: 300px;
+    -webkit-transition:	all 0.4s ease;
+    transition:		all 0.4s ease;
+}
+
+.descri-title:hover img {
+    margin-left: 65%;
+}
+
+.index_box{
+    color: white;
+    padding: 10px;
+    font-size: 110%;
+    border-radius: 3px;
+    background: #1ba;
+    border: 3px solid #565d64;
+}
+.index_box a {
+    color: white;
+}
+
+
+
+@media (max-width: 770px) {
+    .tagg {
+        display: none;
+    }
+
+    .tag_box {
+        background: #565d64;
+        transition: background-color 0.5s;
+        transition-timing-function: linear;
+    }
+
+    .tag_box a {
+        color: white;
+        opacity: 0;
+        transition: opacity 1s;
+        transition-timing-function: ease;
+    }
+
+    .tag_box:hover a {
+        opacity: 1;
+    }
+
+    .tag_box:hover {
+        background: #333333;
+    }
+}
+
+@media (min-width: 770px) {
+    .tag_box div {
+        width: 40%;
+        height: 32px;
+        position: absolute;
+        right: 10px;
+        text-align: center;
+        border-radius: 4px;
+        background: #333333;
+        transition: width 2s, height 1s ease 0.5s;
+        transition-timing-function: ease;
+    }
+
+    .tag_box p {
+        color: #1ba6a3;
+        opacity: 0;
+        transition: linear 1s, color 2s, opacity 0.5s ease-in .5s;
+        transition-timing-function: ease;
+    }
+
+    .tag_box b {
+        font-size: 25px;
+    }
+
+    .tag_box div:hover {
+        width: 90%;
+        height: 20vw;
+    }
+
+    .tag_box div:hover p {
+        opacity: 1;
+        color: white;
+    }
+
+    .tag_box a {
+        color: white;
+    }
+
+    .tagg {
+        display: block;
+    }
+
+    .anii {
+        display: none;
+    }
+}

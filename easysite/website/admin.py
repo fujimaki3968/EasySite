@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import SiteInfo, SiteTag, VisitLog
+from .models import SiteInfo, SiteTag, VisitLog, MediaImage
 
 
 # Register your models here.
@@ -16,3 +16,4 @@ class Log(admin.ModelAdmin):
 admin.site.register(SiteInfo, WebSiteInfo)
 admin.site.register(SiteTag, WebSiteInfo)
 admin.site.register(VisitLog, Log)
+admin.site.register(MediaImage, Log)
