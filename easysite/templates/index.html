@@ -1,5 +1,5 @@
 {% load static %}
-{% load  web_tag %}
+{% load web_tag %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -51,11 +51,10 @@
             {% endblock %}
         </div>
     </div>
-
+    {% block content %}
     <div class="content">
-        {% block content %}
         <div class=""><br>
-            <div class="posts">
+            <div class="posts pure-u-1">
                 <h2 style="color: #777777" class="under">更新履歴</h2>
             </div>
             {% for foo in sites %}
@@ -95,8 +94,8 @@
             {% endfor %}
 
         </div>
-        {% endblock %}
     </div>
+    {% endblock %}
 </div>
 
 
