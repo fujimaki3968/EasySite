@@ -6,7 +6,7 @@ from .models import SiteInfo, SiteTag
 # Create your views here.
 
 def index(request):
-	sites = SiteInfo.objects.all()
+	sites = SiteInfo.objects.order_by('-date')
 	tags = SiteTag.objects.all()
 	return render(request, 'index.html', {'tags': tags, 'sites': sites})
 
@@ -14,3 +14,8 @@ def index(request):
 def tag_info(request, st):
 	tag = get_object_or_404(SiteTag, tag_name=st)
 	return render(request, 'tag_info.html', {'tag': tag})
+
+
+def site_info(request, st):
+	site = get_object_or_404(SiteInfo, title=st)
+	return render(request, 'site.html', {'site': site})

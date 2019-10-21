@@ -161,7 +161,8 @@ a {
     .tag_box p {
         color: #1ba6a3;
         opacity: 0;
-        transition: linear 1s, color 2s, opacity 0.5s ease-in .5s;
+        font-size: 3em;
+        transition: linear 1s, color 2s, opacity 0.5s ease-in .5s, font-size 0.5s;
         transition-timing-function: ease;
     }
 

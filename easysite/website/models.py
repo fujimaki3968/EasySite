@@ -5,8 +5,10 @@ from django.utils import timezone
 # Create your models here.
 
 class SiteInfo(models.Model):
-	title = models.CharField(max_length=30, null=True)
-	thumbnail = models.ForeignKey('MediaImage', on_delete=models.CASCADE, blank=True)
+	title = models.CharField(max_length=30, null=True, unique=True)
+	subtitle = models.CharField(max_length=40, null=True)
+	caption = models.TextField(max_length=150, null=True)
+	thumbnail = models.ForeignKey('MediaImage', on_delete=models.CASCADE, blank=True, null=True)
 	index = models.TextField(blank=True)
 	content = models.TextField(blank=True)
 	date = models.DateField(default=timezone.now)
@@ -15,6 +17,9 @@ class SiteInfo(models.Model):
 
 	def __str__(self):
 		return self.title
+
+	class Meta:
+		ordering = ['-date']
 
 
 class SiteTag(models.Model):
