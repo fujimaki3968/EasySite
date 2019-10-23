@@ -18,4 +18,9 @@ def tag_info(request, st):
 
 def site_info(request, st):
 	site = get_object_or_404(SiteInfo, title=st)
-	return render(request, 'site.html', {'site': site})
+	index = site.index.split(",")
+	content = site.content.split(",")
+	site_content = []
+	for i in range(len(index)):
+		site_content.append([index[i], content[i]])
+	return render(request, 'site.html', {'site': site, 'site_content': site_content})

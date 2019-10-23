@@ -16,5 +16,22 @@
             {% if site.thumbnail %}
                 <img alt="{{ site.thumbnail.tag }}" src="{{ site.thumbnail.attach.url }}">
             {% endif %}
+
+            <div class="index_box">
+                <span>目次</span>
+                {% for foo in site_content %}
+                     <li><a>{{ foo.0 }}</a></li>
+                {% endfor %}
+            </div>
+            {% for foo in site_content %}
+                <div class="posts">
+                    <h3 style="color: #777777" class="under">{{ foo.0 }}</h3>
+                </div>
+                <div>
+                    <p>{{ foo.1 }}</p>
+                </div>
+            {% endfor %}
+
+
     </div>
 {% endblock %}

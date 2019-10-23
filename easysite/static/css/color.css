@@ -78,12 +78,12 @@ a {
 }
 
 .descri-title .mask {
-    width:			65%;	/* 画像の半分の大きさにする */
+    width:			80%;	/* 画像の半分の大きさにする */
     height:			97.6%;
     position:		absolute;
     top:			0;
     left:			0;
-    margin-left:		-65%;	/* 枠の左に置いて表示させない */
+    margin-left:		-80%;	/* 枠の左に置いて表示させない */
     background-color:	#1ba;
     -webkit-transition:	all 0.2s ease;
     transition:		all 0.2s ease;
@@ -101,10 +101,11 @@ a {
 }
 
 .descri-title:hover img {
-    margin-left: 65%;
+    margin-left: 80%;
 }
 
 .index_box{
+    width: 50%;
     color: white;
     padding: 10px;
     font-size: 110%;
