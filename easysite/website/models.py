@@ -5,18 +5,18 @@ from django.utils import timezone
 # Create your models here.
 
 class SiteInfo(models.Model):
-	title = models.CharField(max_length=30, null=True, unique=True)
+	title = models.CharField(max_length=15, null=True, unique=True)
 	subtitle = models.CharField(max_length=40, null=True)
 	caption = models.TextField(max_length=150, null=True)
-	thumbnail = models.ForeignKey('MediaImage', on_delete=models.CASCADE, blank=True, null=True)
-	index = models.TextField(blank=True)
-	content = models.TextField(blank=True)
 	date = models.DateField(default=timezone.now)
 	tags = models.ManyToManyField('SiteTag', blank=True)
 	count = models.IntegerField(default=0)
 
 	def __str__(self):
 		return self.title
+
+	def get_tags(self):
+		return ",".join([str(p) for p in self.tags.all()])
 
 	class Meta:
 		ordering = ['-date']
@@ -41,12 +41,20 @@ class VisitLog(models.Model):
 
 
 class MediaImage(models.Model):
-	tag = models.CharField(max_length=20, blank=True)
+	site_info = models.ForeignKey('SiteInfo', on_delete=models.CASCADE, blank=True, null=True)
 	attach = models.FileField(
 		upload_to='uploads/%Y/%m/%d/',
 		verbose_name='添付ファイル',
 	)
-	date = models.DateField(default=timezone.now)
 
 	def __str__(self):
-		return self.tag
+		name = self.attach.name
+		return name
+
+
+class SiteContents(models.Model):
+	site_info = models.ForeignKey('SiteInfo', on_delete=models.CASCADE, null=True)
+	index = models.CharField(max_length=20, null=True)
+	content = models.TextField(null=True)
+	img_type = models.IntegerField(default=0)
+	image = models.ForeignKey('MediaImage', on_delete=models.CASCADE, blank=True, null=True)
