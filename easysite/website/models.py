@@ -7,6 +7,12 @@ from django.utils import timezone
 class SiteInfo(models.Model):
 	title = models.CharField(max_length=15, null=True, unique=True)
 	subtitle = models.CharField(max_length=40, null=True)
+	thumbnail = models.ImageField(
+		upload_to='uploads/thumbnail/%Y/%m/%d/',
+		verbose_name='サムネイル',
+		null=True,
+		blank=True
+	)
 	caption = models.TextField(max_length=150, null=True)
 	date = models.DateField(default=timezone.now)
 	tags = models.ManyToManyField('SiteTag', blank=True)

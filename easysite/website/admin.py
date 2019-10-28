@@ -28,8 +28,8 @@ class Site(admin.ModelAdmin):
 		models.TextField: {'widget': Textarea(
 			attrs={'rows': 1, 'cols': 40, 'style': 'height: 1em;'})},
 	}
-	fields = ['title', 'subtitle', 'caption', 'tags']
-	list_display = ['title', 'get_tags', 'caption']
+	fields = ['title', 'thumbnail', 'subtitle', 'caption', 'tags']
+	list_display = ['title', 'get_tags', 'caption', 'date', 'count']
 	inlines = [ImageInline, Content]
 
 

@@ -19,16 +19,19 @@
 
             <div class="index_box">
                 <span>目次</span>
-                {% for foo in site_content %}
-                     <li><a>{{ foo.0 }}</a></li>
+                {% for foo in contents %}
+                     <li><a>{{ foo.index }}</a></li>
                 {% endfor %}
             </div>
-            {% for foo in site_content %}
+            {% for foo in contents %}
                 <div class="posts">
-                    <h3 style="color: #777777" class="under">{{ foo.0 }}</h3>
+                    <h3 style="color: #777777" class="under">{{ foo.index }}</h3>
                 </div>
+                {% if foo.image %}
+                    <img alt="{{ foo.index }}" src="{{ foo.image.attach.url }}">
+                {% endif %}
                 <div>
-                    <p>{{ foo.1 }}</p>
+                    <p>{{ foo.content }}</p>
                 </div>
             {% endfor %}
 

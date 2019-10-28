@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 
-from .models import SiteInfo, SiteTag
+from .models import SiteInfo, SiteTag, MediaImage, SiteContents
 
 
 # Create your views here.
@@ -18,5 +18,6 @@ def tag_info(request, st):
 
 def site_info(request, st):
 	site = get_object_or_404(SiteInfo, title=st)
-	site_content = []
-	return render(request, 'site.html', {'site': site, 'site_content': site_content})
+	images = MediaImage.objects.filter(site_info=site)
+	contents = SiteContents.objects.filter(site_info=site)
+	return render(request, 'site.html', {'site': site, 'images': images, 'contents': contents})
